@@ -1,0 +1,5 @@
+component Paddle{
+    Int32 Index;
+    Int32 Score;
+    FP Velocity;
+}
