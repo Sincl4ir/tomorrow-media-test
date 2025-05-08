@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Photon.Deterministic;
+using UnityEngine;
 
 namespace Quantum
 {
@@ -16,5 +17,6 @@ namespace Quantum
         public int CountdownTime;
         public int GameTime;
         public int FinishedTime;
+        [Range(0, 100)] public int PowerUpChance;
     }
 }

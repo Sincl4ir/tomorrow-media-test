@@ -302,6 +302,11 @@ MonoBehaviour:
     SystemName: 
     StartDisabled: 0
     Children: []
+  - SystemType:
+      AssemblyQualifiedName: Tomorrow.Quantum.DestructableSystem, Quantum.Simulation
+    SystemName: 
+    StartDisabled: 0
+    Children: []
 --- !u!114 &9088596742161620559
 MonoBehaviour:
   m_ObjectHideFlags: 0
