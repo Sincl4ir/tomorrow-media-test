@@ -1,18 +1,18 @@
-component PowerUpHandler 
-{
-    asset_ref<BasePowerUp> PowerUp;
-    Timer Timer;
-    bool IsActive;
-}
-
-component ActivePowerUp
-{
-    PowerUpHandler PowerUpDefinition;
-}
-
 component PowerUpHolder
 {
     asset_ref<BasePowerUp> PowerUp;
+}
+
+component ActivePowerUps
+{
+    bool HasActivePowerUps;
+    list<PowerUpHandler> ActivePowerUpsList;
+}
+
+struct PowerUpHandler
+{
+    asset_ref<BasePowerUp> PowerUp;
+    Timer Timer;
 }
 
 signal OnPowerUpCollected(entity_ref player, asset_ref<BasePowerUp> powerUpRef);
