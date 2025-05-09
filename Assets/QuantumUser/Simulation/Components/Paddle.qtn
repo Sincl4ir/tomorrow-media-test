@@ -2,4 +2,20 @@ component Paddle{
     Int32 Index;
     Int32 Score;
     FP Velocity;
+    Int32 BallSpeedMultiplier;
 }
+
+component BallSpeedMultiplierBackUp
+{
+    Int32 OriginalBallSpeedMult;
+}
+
+component OriginalPaddleSize {
+  FP originalX;
+  FP originalY;
+  FP originalZ;
+}
+
+event GrowPowerUpApplied { EntityRef Entity; int SizeMultiplier; }
+
+event GrowPowerUpRemoved { EntityRef Entity; }

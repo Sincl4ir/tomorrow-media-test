@@ -1,0 +1,21 @@
+component PowerUpHandler 
+{
+    asset_ref<BasePowerUp> PowerUp;
+    Timer Timer;
+    bool IsActive;
+}
+
+component ActivePowerUp
+{
+    PowerUpHandler PowerUpDefinition;
+}
+
+component PowerUpHolder
+{
+    asset_ref<BasePowerUp> PowerUp;
+}
+
+signal OnPowerUpCollected(entity_ref player, asset_ref<BasePowerUp> powerUpRef);
+
+event OnPowerUpStarted { entity_ref Entity; asset_ref<BasePowerUp> PowerUpRef; }
+event OnPowerUpEnded { entity_ref Entity; asset_ref<BasePowerUp> PowerUpRef; }

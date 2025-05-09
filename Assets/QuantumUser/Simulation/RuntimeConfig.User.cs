@@ -18,5 +18,6 @@ namespace Quantum
         public int GameTime;
         public int FinishedTime;
         [Range(0, 100)] public int PowerUpChance;
+        public AssetRef<BasePowerUp>[] PowerUps;
     }
 }

@@ -25,7 +25,7 @@ namespace Tomorrow.Quantum
                                 info.ContactNormal + 
                                 (paddle->Index == 0 ? 1 : -1) * (ballTransform->Position.X - otherTransform->Position.X) * FPVector3.Right
                             );
-                            ball->Velocity = f.RuntimeConfig.BallSpeed * direction;
+                            ball->Velocity = f.RuntimeConfig.BallSpeed * paddle->BallSpeedMultiplier * direction;
                             ball->Paddle = info.Other;
                         }
                         // collide with walls
