@@ -1423,7 +1423,6 @@ GameObject:
   - component: {fileID: 6307327981380776080}
   - component: {fileID: 4562938381150998290}
   - component: {fileID: 3068608081136572088}
-  - component: {fileID: 2765100936390140038}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -1543,19 +1542,6 @@ MonoBehaviour:
   _scoreTexts:
   - {fileID: 5450506339032502835}
   - {fileID: 2895901529820592845}
---- !u!114 &2765100936390140038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735671199035362733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45f7b0746f3d0194db56f16643c7b672, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _powerUpText: {fileID: 1607992503005478667}
 --- !u!1 &8164695778656028049
 GameObject:
   m_ObjectHideFlags: 0

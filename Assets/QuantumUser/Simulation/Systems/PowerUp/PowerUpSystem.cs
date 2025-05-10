@@ -4,7 +4,7 @@ namespace Tomorrow.Quantum
     using UnityEngine.Scripting;
 
     [Preserve]
-    public unsafe class PowerUpSystem : SystemMainThreadFilter<PowerUpSystem.Filter>, ISignalOnPowerUpCollected
+    public unsafe class PowerUpSystem : SystemMainThreadFilter<PowerUpSystem.Filter>, ISignalOnPowerUpCollected, ISignalOnScoreChanged
     {
         public unsafe struct Filter
         {
@@ -40,17 +40,9 @@ namespace Tomorrow.Quantum
             }
 
             if (activePowerUps.Count > 0) { return; }
+
             filter.State->HasActivePowerUps = false;
-
-            // Copy-pasted from Quantum Docs :)
-
-            // A component HAS TO de-allocate all collection it owns from the frame data, otherwise it will lead to a memory leak.
-            // receives the list QListPtr reference.
             f.FreeList(filter.State->ActivePowerUpsList);
-
-            // All dynamic collections a component points to HAVE TO be nullified in a component's OnRemoved
-            // EVEN IF is only referencing an external one!
-            // This is to prevent serialization issues that otherwise lead to a desynchronisation.
             filter.State->ActivePowerUpsList = default;
         }
 
@@ -96,6 +88,33 @@ namespace Tomorrow.Quantum
 
             f.Events.OnPowerUpStarted(entity, powerUpRef);
             powerUpAsset.Apply(f, entity);
+        }
+
+        public void OnScoreChanged(Frame f, EntityRef ball, EntityRef goal)
+        {
+            foreach (var pair in f.Unsafe.GetComponentBlockIterator<PlayerLink>())
+            {
+                var activePowerUps = f.Unsafe.GetPointer<ActivePowerUps>(pair.Entity);
+                if (activePowerUps->ActivePowerUpsList == default) { return; }
+                var powerUpList = f.ResolveList(activePowerUps->ActivePowerUpsList);
+                for (int i = powerUpList.Count - 1; i >= 0; i--)
+                {
+                    var handler = powerUpList[i];
+                    var powerUpAsset = f.FindAsset<BasePowerUp>(handler.PowerUp.Id);
+
+                    if (powerUpAsset != null)
+                    {
+                        f.Events.OnPowerUpEnded(pair.Entity, handler.PowerUp);
+                        powerUpAsset.Remove(f, pair.Entity);
+                    }
+
+                    powerUpList.RemoveAt(i);
+                }
+
+                f.FreeList(activePowerUps->ActivePowerUpsList);
+                activePowerUps->ActivePowerUpsList = default;
+                activePowerUps->HasActivePowerUps = false;
+            }
         }
     }
 }

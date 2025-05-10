@@ -19,7 +19,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: d628d0b22653c934ba8f673a8edf766b, type: 3}
   PowerUpName: Turbocharge
   Duration:
-    RawValue: 262144
+    RawValue: 655360
   Prototype:
     Id:
       Value: 1337403463222533312

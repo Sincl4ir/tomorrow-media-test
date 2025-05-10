@@ -19,7 +19,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: e648a656fc9941d4abae6c938d094b5f, type: 3}
   PowerUpName: Titan Paddle
   Duration:
-    RawValue: 262144
+    RawValue: 655360
   Prototype:
     Id:
       Value: 1307161224098846461
