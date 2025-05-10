@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2513744088170289031}
   - component: {fileID: 3068046165174696344}
   m_Layer: 0
-  m_Name: BallSpeedPowerUp
+  m_Name: TurboChargePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

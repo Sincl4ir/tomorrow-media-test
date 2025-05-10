@@ -22,15 +22,12 @@ namespace Quantum
                 originalZ = extents.Z
             });
 
-            Log.Debug($"X value is {extents.X}, new value is {extents.X * SizeMultiplier}");
-            // Apply multiplier only to X
             collider->Shape.Box.Extents = new FPVector3(
                 extents.X * SizeMultiplier,
                 extents.Y,
                 extents.Z
             );
 
-            //collider->Shape.Box.Extents *= SizeMultiplier;
             transform->Position.Y = 0;
 
             // Calculate the ratio and send it
