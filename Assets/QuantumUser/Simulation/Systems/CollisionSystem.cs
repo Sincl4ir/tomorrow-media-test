@@ -39,7 +39,6 @@ namespace Tomorrow.Quantum
                             if (f.Unsafe.TryGetPointer<Paddle>(ball->Paddle, out Paddle* lastPaddle))
                             {
                                 multiplier = lastPaddle->BallSpeedMultiplier;
-                                Log.Debug("Setting multipilier: " + multiplier);
                             }
                             // var direction = new FPVector3(info.ContactNormal.X, 0, -info.ContactNormal.Z);
                             ball->Velocity = f.RuntimeConfig.BallSpeed * multiplier * direction;

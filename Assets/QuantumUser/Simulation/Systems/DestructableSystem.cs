@@ -13,7 +13,11 @@ namespace Tomorrow.Quantum
             if (!f.Unsafe.TryGetPointer<Ball>(info.Other, out Ball* ball)) { return; }
             if (!f.Unsafe.TryGetPointer<PlayerLink>(ball->Paddle, out PlayerLink* player)) { return; }
 
-            if (f.RNG->Next(0, 100) > f.RuntimeConfig.PowerUpChance) { return; }
+            if (f.RNG->Next(0, 100) > f.RuntimeConfig.PowerUpChance) 
+            {
+                f.Destroy(info.Entity);
+                return; 
+            }
 
             // Get random powerUp
             var powerUps = f.RuntimeConfig.PowerUps;

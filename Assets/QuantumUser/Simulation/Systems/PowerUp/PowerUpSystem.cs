@@ -94,8 +94,9 @@ namespace Tomorrow.Quantum
         {
             foreach (var pair in f.Unsafe.GetComponentBlockIterator<PlayerLink>())
             {
-                var activePowerUps = f.Unsafe.GetPointer<ActivePowerUps>(pair.Entity);
-                if (activePowerUps->ActivePowerUpsList == default) { return; }
+                if (!f.Unsafe.TryGetPointer<ActivePowerUps>(pair.Entity, out ActivePowerUps* activePowerUps)) { continue; }
+                if (activePowerUps->ActivePowerUpsList == default) { continue; }
+
                 var powerUpList = f.ResolveList(activePowerUps->ActivePowerUpsList);
                 for (int i = powerUpList.Count - 1; i >= 0; i--)
                 {

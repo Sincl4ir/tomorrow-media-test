@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TitanPaddle
   m_EditorClassIdentifier: 
   Identifier:
-    Path: QuantumUser/Prefabs/PowerUps/PaddleGrow/TitanPaddle
+    Path: QuantumUser/Prefabs/PowerUps/TitanPaddle/TitanPaddle
     Guid:
       Value: 326225788139361386
-  Icon: {fileID: 21300000, guid: e648a656fc9941d4abae6c938d094b5f, type: 3}
+  Icon: {fileID: 21300000, guid: bc6e3b504fbf20d499925c6345762b82, type: 3}
   PowerUpName: Titan Paddle
   Duration:
     RawValue: 655360

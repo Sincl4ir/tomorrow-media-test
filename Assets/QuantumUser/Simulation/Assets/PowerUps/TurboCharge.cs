@@ -3,7 +3,7 @@ namespace Quantum
     using Photon.Deterministic;
     using UnityEngine;
 
-    public unsafe class BallSpeedPowerUp : BasePowerUp
+    public unsafe class TurboCharge : BasePowerUp
     {
         public int SpeedMultiplier = 2;
 

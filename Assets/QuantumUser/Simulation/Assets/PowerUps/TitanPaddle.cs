@@ -2,7 +2,7 @@ namespace Quantum
 {
     using Photon.Deterministic;
 
-    public unsafe class GrowPowerUp : BasePowerUp
+    public unsafe class TitanPaddle : BasePowerUp
     {
         public int SizeMultiplier = 2;
 
